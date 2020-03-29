@@ -5,6 +5,7 @@ The purpose of **EQVersion** is to remove the change redundancy in the project v
 
 
 Using:
+------
 
 In a project using `Poetry`_ and an active virtual environment, add **EQVersion** as a development dependency:
 
@@ -17,8 +18,15 @@ Now simply run the command below for the versions to be matched:
 
 .. code-block:: shell
 
-    $ eqversion <PACKAGE MAIN NAME>
+    $ eqversion
 
+**Specifying a package:**
+
+By default, **EQVersion** takes the name of the main package via **pyproject.toml**, in the key **name**, but it may happen that the name of the main package is not the same as in **pyproject.toml**. If this happens, the **--package** option should be used to specify the main package:
+
+.. code-block:: shell
+
+    $ eqversion --package=<PACKAGE MAIN NAME>
 
 Using with tests:
 
@@ -39,7 +47,9 @@ Example of `tox.ini` file:
     commands =
         pip install --upgrade pip
         poetry install
-        poetry run eqversion <PACKAGE MAIN NAME>
+        poetry run eqversion
+    ;   Or use the named option:
+    ;   poetry run eqversion --package=<PACKAGE MAIN NAME>
         poetry run pytest --basetemp={envtmpdir}
 
 Links
@@ -47,7 +57,7 @@ Links
 
 * Authors: https://github.com/snakypy/eqversion/blob/master/AUTHORS.rst
 * Code: https://github.com/snakypy/eqversion
-* Documentation: https://github.com/snakypy/eqversion/blob/master/README.md
+* Documentation: https://github.com/snakypy/eqversion/blob/master/README.rst
 * Releases: https://pypi.org/project/eqversion/#history
 * Issue tracker: https://github.com/snakypy/eqversion/issues
 
