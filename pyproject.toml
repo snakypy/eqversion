@@ -1,0 +1,50 @@
+[tool.poetry]
+name = "eqversion"
+version = "0.1.0"
+description = "EQversion maintains the pyproject.toml and __init__.py (from the main package) versions in the same way."
+authors = ["William C. Canin <william.costa.canin@gmail.com>"]
+readme = "README.rst"
+license = "MIT"
+keywords=["eqversion", "snakypy", "version", "equal"]
+homepage = "https://github.com/snakypy/eqversion"
+repository = "https://github.com/snakypy/eqversion"
+include = ["LICENSE"]
+
+classifiers = [
+    "Intended Audience :: Developers",
+    "Environment :: Console",
+    "License :: OSI Approved :: MIT License",  
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS :: MacOS X",
+    "Operating System :: Microsoft",
+    "Operating System :: Unix",
+    "Programming Language :: Python :: 3"
+]
+
+packages = [
+    { include = "eqversion" }
+]
+
+[tool.poetry.scripts]
+eqversion = "eqversion.eqversion:main"
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/snakypy/eqversion/issues"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+snakypy = "^0.3.4"
+docopt = "^0.6.2"
+tomlkit = "^0.5.11"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.3.5"
+twine = "^3.1.1"
+wheel = "^0.34.2"
+flake8 = "^3.7.9"
+black = "^19.10b0"
+tox = "^3.14.5"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
