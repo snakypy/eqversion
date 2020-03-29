@@ -39,7 +39,7 @@ Example of `tox.ini` file:
     commands =
         pip install --upgrade pip
         poetry install
-        poetry run eqversion my_package_main
+        poetry run eqversion <PACKAGE MAIN NAME>
         poetry run pytest --basetemp={envtmpdir}
 
 Links
