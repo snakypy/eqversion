@@ -39,6 +39,7 @@ click = "^7.1.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.3.5"
+tox = "^3.14.5"
 twine = "^3.1.1"
 wheel = "^0.34.2"
 flake8 = "^3.7.9"
