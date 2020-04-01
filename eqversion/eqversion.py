@@ -21,7 +21,9 @@ class EQVersion:
             parsed = tomlkit.parse(r_file)["tool"]["poetry"]
             return parsed["version"], parsed["name"].replace("-", "_")
         except Exception:
-            raise Exception(">>> An error occurred while reading the version of pyproject.toml")
+            raise Exception(
+                ">>> An error occurred while reading the version of pyproject.toml"
+            )
 
     def read_init(self, package):
         init_file = os.path.join(self.root, package, "__init__.py")
