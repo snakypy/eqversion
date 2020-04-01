@@ -1,4 +1,5 @@
 import os
+import sys
 import re
 import click
 import snakypy
@@ -12,11 +13,15 @@ class EQVersion:
         self.pyproject = os.path.join(self.root, "pyproject.toml")
 
     def version_name_pyproject(self):
-        if os.path.isfile(self.pyproject):
+        if not os.path.isfile(self.pyproject):
+            print(">>> Directory not supported by EQVersion. Aborted.")
+            sys.exit(1)
+        try:
             r_file = snakypy.file.read(self.pyproject)
             parsed = tomlkit.parse(r_file)["tool"]["poetry"]
             return parsed["version"], parsed["name"].replace("-", "_")
-        return
+        except Exception:
+            raise Exception(">>> An error occurred while reading the version of pyproject.toml")
 
     def read_init(self, package):
         init_file = os.path.join(self.root, package, "__init__.py")
@@ -35,7 +40,10 @@ class EQVersion:
 
     def match(self, package):
         init_file = os.path.join(self.root, package, "__init__.py")
-        if self.read_init(package) and self.version_name_pyproject()[0]:
+        if not self.read_init(package) or not self.version_name_pyproject():
+            print(">>> Directory not supported by EQVersion. Aborted.")
+            sys.exit(1)
+        else:
             line_version = self.read_init(package)[1]
             new_line_version = f'__version__ = "{self.version_name_pyproject()[0]}"'
             new_init_file = re.sub(
@@ -52,7 +60,7 @@ class EQVersion:
                 )
                 snakypy.file.create(new_init_file, init_file, force=True)
             else:
-                print("All the same!")
+                print(">>> All the same!")
             return True
         return
 
