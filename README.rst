@@ -1,6 +1,10 @@
 EQVersion
 =========
 
+.. image:: https://github.com/snakypy/eqversion/workflows/Python%20package/badge.svg
+    :target: https://github.com/snakypy/dotctrl
+
+
 The purpose of **EQVersion** is to remove the change redundancy in the project version in two places, in the **pyproject.toml** and in the **__init__.py** of the main package. **EQVersion** is especially for those who work with `Poetry`_.
 
 
