@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "eqversion"
-version = "0.1.2"
+version = "0.1.3"
 description = "EQversion maintains the pyproject.toml and __init__.py (from the main package) versions in the same way."
 authors = ["William C. Canin <william.costa.canin@gmail.com>"]
 readme = "README.rst"
