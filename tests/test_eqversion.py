@@ -3,7 +3,6 @@ import tomlkit
 import snakypy
 import subprocess
 from os.path import join
-from eqversion import __version__
 from eqversion.eqversion import EQVersion
 
 
