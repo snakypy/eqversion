@@ -1,4 +1,4 @@
-EQVersion [DEPRECATED, NOT USE]
+EQVersion [DISCONTINUED, NOT USE]
 =========
 
 .. image:: https://github.com/snakypy/eqversion/workflows/Python%20package/badge.svg
